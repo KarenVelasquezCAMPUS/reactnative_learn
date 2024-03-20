@@ -57,7 +57,7 @@ function aplicarOperacionAArray(array, operacion) {
   
   // Utilizando la función de orden superior para aplicar la función 'duplicar' a cada elemento del array
   let resultadoDuplicado = aplicarOperacionAArray(numeros, duplicar);
-  console.log(resultadoDuplicado); 
+  console.log(resultadoDuplicado); // Output 2, 4, 6, 8, 10 
   
   // 6. Funciones Recursivas
     // Llamadas a sí mismas durante la ejecución
