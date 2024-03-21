@@ -35,3 +35,18 @@ const addressString = address.addressNum; // converti el objeto en un string
 // console.log(addressString);
 
 newDogGreeting.call(newHouse, owner, addressString);
+
+// use of this on clases or objects
+class Persona {
+    constructor(nombre, edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+}
+
+const persona1 = new Persona("Juan", 25);
+console.log(persona1);
+
+persona1.nuevoMetodo = function () {
+    console.log(`Mi nombre es ${this.nombre}`);
+};
