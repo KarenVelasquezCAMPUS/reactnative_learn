@@ -49,13 +49,24 @@ console.log("Length property");
 const numberOfFruits=fruits.length;
 console.log(numberOfFruits);
 
-// Mutability --> add
+// Cheking arrays with Array.isArray()
+const isArray = Array.isArray(fruits);
+console.log(isArray);
+
+// Practical Exercise: summary all elements of an array
+const numbersArray = [1,2,3,4,5];
+let sum = 0;
+
+for (let i = 0; i < numbersArray.length; i++) {
+    sum += numbersArray[i];
+}
+console.log(sum);
+
+// Mutability --> add (methods that modify original array)
 console.log("Mutability --> add");
 
 fruits.push('watermelon');
 console.log(fruits);
-
-// Methods that modify original array
 
 // push(), añade al final de array nuevos elementos 
 console.log("push()");
@@ -135,7 +146,7 @@ console.log("fill()");
 const ages = [21, 35, 45, 50];
 console.log(ages.fill(0, 2, 4)); // llena con 0 desde la posicion 2 hasta la 4
 
-// Inmutability --> add (modificando el array principal)
+// Inmutability --> add (methods that don't modify the original array)
 console.log("Inmutability --> add");
 
 const newFruits = fruits.concat(['grape','kiwi']);
@@ -240,15 +251,104 @@ const indexNumber = randomNumber.findIndex(number => number > 50);
 console.log(randomNumber);
 console.log(indexNumber);
 
-// Cheking arrays with Array.isArray()
-const isArray = Array.isArray(fruits);
-console.log(isArray);
+// concat(), concatena pero retorna en un array
+console.log("concat()");
 
-// Practical Exercise: summary all elements of an array
-const numbersArray = [1,2,3,4,5];
-let sum = 0;
+const morseCode1 = ['....', '---'];
+const morseCode2 = ['.-..', '.-'];
 
-for (let i = 0; i < numbersArray.length; i++) {
-    sum += numbersArray[i];
+const morseCodeMessage1 = morseCode1.concat(morseCode2); // st method
+const morseCodeMessage2 = [].concat(morseCode1, morseCode2); // nd method
+
+console.log(morseCodeMessage1);
+console.log(morseCodeMessage2);
+
+// spread operator
+console.log("spread operator");
+;
+function combineMorseMessages (morseCode1, morseCode2) {
+    return  [...morseCode1, ...morseCode2];
 }
-console.log(sum);
+
+combineMorseMessages(morseCode1, morseCode2);
+console.log(combineMorseMessages(morseCode1, morseCode2));
+
+// con spread operator no solo se puede concatenar tambien se puede crear una copia de un array al cual no queremos modificarlo:
+const originalArray = [1, 2, 3, 4, 5];
+const copyOfAnArray = [...originalArray];
+
+// tambien se pueden agregar nuevos elementos en un array (no en el original)
+const baseArray = [1, 2, 3];
+const newArray = [...baseArray, 4, 5];
+
+// tambien se le puede pasar parametros a una funcion con spread operator
+function sum (a, b, c) {
+    return a + b + c;
+}
+
+const numbersSum = [1, 2, 3, 4, 5];
+const result = sum(...numbers);
+
+// concat with array and string
+const numbersConcat = [1, 2, 3];
+const string = 'string';
+
+combineMorseMessages(numbersConcat, string);
+console.log(combineMorseMessages(numbersConcat, string));
+
+// join(), contatena pero retorna todo pegado tipo string
+console.log("join()");
+
+const morseCodeMessageString = morseCodeMessage1.join('');
+console.log(morseCodeMessageString);
+
+// every(), todos cumplen con una condicion
+console.log("every()");
+
+const agesEvery = [21, 25, 30, 19, 22];
+const allAreAdults = agesEvery.every(age => age > 18);
+
+console.log(agesEvery);
+console.log(allAreAdults);
+
+// some(), al menos uno cumple con la condicion
+console.log("some()");
+
+const atLeastOneIsOver30 = agesEvery.some(age => age >= 30);
+
+console.log(atLeastOneIsOver30);
+
+// search for elements in an arrays
+
+// includes(), busqueda de un elemento especifico en un array (false si no existe)
+console.log("includes()");
+
+const numbersIncludes = [1, 2, 3, 4, 5];
+const isIncluded = numbersIncludes.includes(3);
+
+console.log(isIncluded);
+
+// indexOf(), busqueda del indice de un elemento especifico en un array (-1 si no existe)
+console.log("indexOf()");
+
+const fruitsIndexOf = ['apple', 'cherry', 'grape', 'mango'];
+const indexFruit = fruitsIndexOf.indexOf('grape');
+
+console.log(indexFruit);
+
+// lastIndexOf(), similar  a indexOf pero devuelve el ultimo indice  donde se encuentra el elemento (-1 si no existe)
+console.log("lastIndexOf()");
+
+const numebersLast = [2, 4, 6, 8, 10, 6];
+const lastIndexNumbers = numebersLast.lastIndexOf(6);
+
+console.log(lastIndexNumbers);
+
+// slice(), obtener una porcion del elemento
+console.log("slice()");
+
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+console.log(animals.slice(2));
+console.log(animals.slice(2, 4)); // con rango min y max
+console.log(animals.slice(-2)); // de lo ultimo a lo primero
