@@ -265,7 +265,7 @@ console.log(morseCodeMessage2);
 
 // spread operator
 console.log("spread operator");
-;
+
 function combineMorseMessages (morseCode1, morseCode2) {
     return  [...morseCode1, ...morseCode2];
 }
