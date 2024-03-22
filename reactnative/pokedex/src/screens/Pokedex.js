@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { getPokemonDetailsByUrlApi, getPokemonsApi } from '../api/pokemon';
+import PokemonList from '../components/PokemonList';
 
 export default function Pokedex() {
   const [pokemons, setPokemons] = useState([]);
@@ -36,7 +37,7 @@ export default function Pokedex() {
 
   return (
     <View>
-      <Text>Pokedex Principal</Text>
+      <PokemonList pokemons={pokemons} />
     </View>
   );
 }
