@@ -37,7 +37,6 @@ export default function PokemonCard(props) {
 const styles = StyleSheet.create ({
     card: {
         flex: 1,
-        top: 20,
         height: 130
     },
     spacing: {
