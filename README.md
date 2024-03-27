@@ -4,3 +4,4 @@ Project created to store a documentation and application of what is basic javasc
 
 (instale npm install lodash, en pokedex para estilos)
 (navigation.navigate solo recibe texto planos, no recibe funciones ni objetos)
+(formik para formulario, yup sistema de validacion de formulario)
