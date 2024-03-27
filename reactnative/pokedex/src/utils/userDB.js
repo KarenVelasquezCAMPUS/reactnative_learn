@@ -1,7 +1,7 @@
 export const user = {
-    usrename: "zkfps05",
+    username: "zkfps05",
     password: "10150325"
-};
+}
 
 export const userDetails = {
     username: "zkfps05",
