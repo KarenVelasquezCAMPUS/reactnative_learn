@@ -27,7 +27,6 @@ export default function Favorite(props) {
     };
 
     const addFavorite = async () => {
-      await addPokemonFavoriteApi(id);
       try {
         await addPokemonFavoriteApi(id);
         onReloadCheckFavorite();
