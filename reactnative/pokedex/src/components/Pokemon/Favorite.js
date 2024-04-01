@@ -8,6 +8,7 @@ export default function Favorite(props) {
 
     const { id } = props;
     const [isFavorite, setIsFavorite] = useState(undefined);
+    const [reloadCheck, setRealoadCheack] = useState(false);
     const Icon = isFavorite ? FontAwesome : FontAwesome5;
 
     useEffect (() => {
@@ -19,10 +20,20 @@ export default function Favorite(props) {
           setIsFavorite(false);
         }
       }) ()
-    }, [id])
+    }, [id, reloadCheck]);
+
+    const onReloadCheckFavorite = () => {
+      setRealoadCheack((prev) => !prev);
+    };
 
     const addFavorite = async () => {
       await addPokemonFavoriteApi(id);
+      try {
+        await addPokemonFavoriteApi(id);
+        onReloadCheckFavorite();
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     const removeFavorite = () => {
