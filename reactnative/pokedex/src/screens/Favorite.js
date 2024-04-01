@@ -6,6 +6,7 @@ import { getPokemonDetailsApi } from "../api/pokemon";
 import { initial } from 'lodash';
 import useAuth from "../hooks/useAuth";
 import PokemonList from "../components/PokemonList";
+import NoLogged from '../components/NoLogged';
 
 export default function Favorite() {
 
@@ -36,6 +37,6 @@ export default function Favorite() {
   )  
 
   return (
-    !auth ? <Text> Usuario no logeado </Text> : <PokemonList pokemons = {pokemons} />
+    !auth ? <NoLogged /> : <PokemonList pokemons = {pokemons} />
   )
 }
